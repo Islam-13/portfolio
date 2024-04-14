@@ -229,14 +229,10 @@ h1 {
 .social-icons i {
   transition: var(--transition);
 }
-nav .bi-linkedin:hover,
-#home .bi-linkedin:hover,
-footer .bi-linkedin:hover {
+:is(nav, #home, footer) .bi-linkedin:hover {
   color: #0a66c2;
 }
-nav .bi-github:hover,
-#home .bi-github:hover,
-footer .bi-github:hover {
+:is(nav, #home, footer) .bi-github:hover {
   color: var(--gray-300);
 }
 
