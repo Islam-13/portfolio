@@ -63,14 +63,6 @@ function updateActiveClass() {
   });
 }
 
-updateActiveClass();
-checkCards();
-
-window.addEventListener("scroll", () => {
-  updateActiveClass();
-  checkCards();
-});
-
 function checkCards() {
   cardsElm.forEach((card) => {
     const cardTop = card.getBoundingClientRect().top;
@@ -83,6 +75,14 @@ function checkCards() {
     }
   });
 }
+
+updateActiveClass();
+checkCards();
+
+window.addEventListener("scroll", () => {
+  updateActiveClass();
+  checkCards();
+});
 
 // mode theme
 if (localStorage.getItem("theme")) {
