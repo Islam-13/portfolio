@@ -6,6 +6,7 @@ const scrollersElms = document.querySelectorAll(".scroller-logo");
 const navLinks = document.querySelectorAll(".nav-link");
 const sections = document.querySelectorAll("section");
 const modeBtnElm = document.querySelector(".mode-btn");
+const cardsElm = document.querySelectorAll(".card");
 
 function addAnimation() {
   const innerScroller = document.querySelector(".inner-scroller");
@@ -63,8 +64,25 @@ function updateActiveClass() {
 }
 
 updateActiveClass();
+checkCards();
 
-window.addEventListener("scroll", updateActiveClass);
+window.addEventListener("scroll", () => {
+  updateActiveClass();
+  checkCards();
+});
+
+function checkCards() {
+  cardsElm.forEach((card) => {
+    const cardTop = card.getBoundingClientRect().top;
+    const triggerBottom = (window.innerHeight / 5) * 4;
+
+    if (cardTop < triggerBottom) {
+      card.classList.add("show");
+    } else {
+      card.classList.remove("show");
+    }
+  });
+}
 
 // mode theme
 if (localStorage.getItem("theme")) {
