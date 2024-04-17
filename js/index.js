@@ -7,7 +7,12 @@ const navLinks = document.querySelectorAll(".nav-link");
 const sections = document.querySelectorAll("section");
 const modeBtnElm = document.querySelector(".mode-btn");
 const cardsElm = document.querySelectorAll(".card");
+const footerYearElm = document.querySelector(".footer-year");
 
+const currentYear = new Date().getFullYear();
+footerYearElm.textContent = currentYear;
+
+// tech stack horizontal scroll animation
 function addAnimation() {
   const innerScroller = document.querySelector(".inner-scroller");
   const innerScrollerContent = Array.from(innerScroller.children);
@@ -19,14 +24,15 @@ function addAnimation() {
     innerScroller.appendChild(duplicate);
   });
 }
-
 addAnimation();
 
+// open menu
 menuBtnElm.addEventListener("click", () => {
   sideMenuElm.style.left = "0";
   overlayElm.style.display = "block";
 });
 
+//close menu
 closeMenuElm.addEventListener("click", closeMenu);
 
 document.addEventListener(
@@ -44,6 +50,7 @@ function closeMenu() {
   overlayElm.style.display = "none";
 }
 
+// scroll spy
 function updateActiveClass() {
   sections.forEach((sec) => {
     const secTop = sec.offsetTop;
@@ -63,6 +70,7 @@ function updateActiveClass() {
   });
 }
 
+// projects animation
 function checkCards() {
   cardsElm.forEach((card) => {
     const cardTop = card.getBoundingClientRect().top;
@@ -75,7 +83,6 @@ function checkCards() {
     }
   });
 }
-
 updateActiveClass();
 checkCards();
 
